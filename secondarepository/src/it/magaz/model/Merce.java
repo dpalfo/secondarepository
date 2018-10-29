@@ -42,7 +42,7 @@ public class Merce<T> {
 
 	
 
-	public static List<Mezzo<?>> getMezziMerce() {
+	public List<Mezzo<?>> getMezziMerce() {
 		return mezziMerce;
 	}
 
