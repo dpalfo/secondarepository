@@ -5,7 +5,10 @@ import java.util.List;
 public class Autista extends Persona  {
 
 	long id;
-	List<Mezzo>listmezaut;
+	List<Mezzo<?>>listmezaut;
+	
+	
+	
 	
 	public long getId() {
 		return id;
@@ -13,21 +16,19 @@ public class Autista extends Persona  {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	public List<Mezzo> getListmezaut() {
+	public List<Mezzo<?>> getListmezaut() {
 		return listmezaut;
 	}
-	public void setListmezaut(List<Mezzo> listmezaut) {
+	public void setListmezaut(List<Mezzo<?>> listmezaut) {
 		this.listmezaut = listmezaut;
 	}
 	
 	
-	public Autista(long id, List<Mezzo> listmezaut) {
+	public Autista(long id, List<Mezzo<?>> listmezaut) {
 		super();
 		this.id = id;
 		this.listmezaut = listmezaut;
 	}
-	
 	
 	public Autista() {
 		super();

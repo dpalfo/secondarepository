@@ -37,6 +37,21 @@ public class Camion {
 	public void setpTot(double pTot) {
 		this.pTot = pTot;
 	}
+	
+	
+	public Camion(long id, double pMax, String marca, String nTelaio, double pTot) {
+		super();
+		this.id = id;
+		this.pMax = pMax;
+		Marca = marca;
+		this.nTelaio = nTelaio;
+		this.pTot = pTot;
+	}
+	
+	
+	public Camion() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "Nave [id=" + id + ", pMax=" + pMax + ", Marca=" + Marca + ", nTelaio=" + nTelaio + ", pTot=" + pTot
