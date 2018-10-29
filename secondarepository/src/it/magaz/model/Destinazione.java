@@ -35,6 +35,19 @@ public class Destinazione {
 		this.merce = merce;
 	}
 	
+	
+	public Destinazione(long id, String nome, Mezzo mezzo, Merce merce) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.mezzo = mezzo;
+		this.merce = merce;
+	}
+	
+	
+	public Destinazione() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "Destinazione [id=" + id + ", nome=" + nome + "]";
