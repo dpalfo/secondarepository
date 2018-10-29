@@ -37,7 +37,7 @@ public class Mezzo<T> {
 		return autistiPerMezzo;
 	}
 
-	public static void setAutistiPerMezzo(List<Autista> autistiPerMezzo) {
+	public void setAutistiPerMezzo(List<Autista> autistiPerMezzo) {
 		Mezzo.autistiPerMezzo = autistiPerMezzo;
 	}
 
@@ -45,7 +45,7 @@ public class Mezzo<T> {
 		return merciPerMezzo;
 	}
 
-	public static void setMerciPerMezzo(List<Merce<?>> merciPerMezzo) {
+	public void setMerciPerMezzo(List<Merce<?>> merciPerMezzo) {
 		Mezzo.merciPerMezzo = merciPerMezzo;
 	}
 
