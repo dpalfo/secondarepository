@@ -8,6 +8,7 @@ import it.magaz.model.Autista;
 import it.magaz.model.Direttore;
 import it.magaz.model.Merce;
 import it.magaz.model.Mezzo;
+import it.magaz.model.Nave;
 import it.magaz.model.Operaio;
 
 public class DirettoreServiceImpl implements DirettoreService {
@@ -16,6 +17,8 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public Direttore creaDirettore(Direttore direttore) {
 		// TODO Auto-generated method stub
+		System.out.println("inserisci un id");
+		direttore.setId(input.nextLong());
 		System.out.println("inserisci nome");
 		direttore.setNome(input.nextLine());
 		System.out.println("inserisci cognome");
@@ -24,9 +27,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		direttore.setEta(input.nextInt());
 		System.out.println("inserisci il codice direttore");
 		direttore.setCodic(input.nextLine());
-		
-		
-		return null;
+		return direttore;
 	}
 
 	@Override
@@ -46,8 +47,26 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Mezzo<?>> aggiingiMezzo(Mezzo<?> mezzo) {
+	public List<Mezzo<?>> aggiuingiMezzo(Mezzo<?> mezzo) {
 		// TODO Auto-generated method stub
+		System.out.println("che mezzo vuoi aggiungere? 1)nave 2)camion");
+		int x=input.nextInt();
+		switch(x) {
+		case 1:
+			Mezzo<Nave> nave=new Mezzo<Nave>(new Nave());
+			List<Autista> autisti=new ArrayList<Autista>();
+			List<Merce<?>> merci=new ArrayList<Merce<?>>();
+			System.out.println("inserisci id nave");
+			nave.getTipo().setId(input.nextLong());
+			System.out.println("inserisci il peso massimo che puo trasportare");
+			nave.getTipo().setpMax(input.nextDouble());
+			System.out.println("inserisci il numero di telaio");
+			nave.getTipo().setnTelaio(input.nextLine());
+			nave.setAutistiPerMezzo(autisti);
+			nave.setMerciPerMezzo(merci);
+			
+			
+		}
 		return null;
 	}
 
