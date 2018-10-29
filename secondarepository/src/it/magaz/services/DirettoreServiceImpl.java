@@ -229,12 +229,13 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public Autista autistaPiuMezzi(List<Autista> autisti) {
 		int max_mezzi=0;
+		int mezzi_finale=0;
 		Autista auto=null;
-		for(int i=0;i<autisti.size();i++)
-		{
-			if(autisti.get(i).getListmezaut().size()>max_mezzi)
-			{
-				max_mezzi=autisti.get(i).getListmezaut().size();
+		for(int i=0;i<autisti.size();i++){
+			max_mezzi=0;
+			max_mezzi=max_mezzi+autisti.get(i).getListmezaut().size();
+			if(mezzi_finale<max_mezzi){
+				mezzi_finale=max_mezzi;
 				auto=autisti.get(i);
 			}
 		}
