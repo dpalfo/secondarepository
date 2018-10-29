@@ -11,10 +11,10 @@ import it.magaz.model.Operaio;
 public interface DirettoreService {
 	
     public Direttore creaDirettore (Direttore direttore);
-	public Operaio aggiungiOperaio(Operaio operaio);
-	public Mezzo<?> aggiingiMezzo(Mezzo<?>mezzo);
-	public Autista aggiungiAutista(Autista autista);
-	public Merce<?> aggiungiMerce(Merce<?> merce);
+	public List<Operaio> aggiungiOperaio(Operaio operaio);
+	public List<Mezzo<?>> aggiingiMezzo(Mezzo<?>mezzo);
+	public List<Autista> aggiungiAutista(Autista autista);
+	public List<Merce<?>> aggiungiMerce(Merce<?> merce);
 	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi);
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi);
