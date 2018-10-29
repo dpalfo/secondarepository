@@ -184,8 +184,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 				merce=merci.get(i);
 			}
 		}
-		
-	 return merce;
+		return merce;
 	}
 
 	@Override
@@ -228,8 +227,17 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public Autista autistaPiuMezzi(List<Autista> autisti) {
-		// TODO Auto-generated method stub
-		return null;
+		int max_mezzi=0;
+		Autista auto=null;
+		for(int i=0;i<autisti.size();i++)
+		{
+			if(autisti.get(i).getListmezaut().size()>max_mezzi)
+			{
+				max_mezzi=autisti.get(i).getListmezaut().size();
+				auto=autisti.get(i);
+			}
+		}
+		return auto;
 	}
 
 	@Override
