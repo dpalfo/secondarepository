@@ -72,6 +72,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public List<Autista> aggiungiAutista(Autista autista) {
+		
 		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
 		System.out.println("Crea autista");
 		System.out.println("Inserisci l'ID dell'autista: ");
