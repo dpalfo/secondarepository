@@ -41,7 +41,7 @@ public class Mezzo<T> {
 		Mezzo.autistiPerMezzo = autistiPerMezzo;
 	}
 
-	public static List<Merce<?>> getMerciPerMezzo() {
+	public List<Merce<?>> getMerciPerMezzo() {
 		return merciPerMezzo;
 	}
 

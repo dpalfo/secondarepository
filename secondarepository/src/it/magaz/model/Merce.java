@@ -18,6 +18,8 @@ public class Merce<T> {
 	
 	static List<Operaio> operaiMerce;
 	
+	double costo;
+	
 	Destinazione destinazione;
 
 	public T getContenuto() {
@@ -54,13 +56,27 @@ public class Merce<T> {
 		Merce.operaiMerce = operaiMerce;
 	}
 
+	public double getCosto() {
+		return costo;
+	}
+
+	public void setCosto(double costo) {
+		this.costo = costo;
+	}
+
+	public Destinazione getDestinazione() {
+		return destinazione;
+	}
+
+	public void setDestinazione(Destinazione destinazione) {
+		this.destinazione = destinazione;
+	}
+
 	@Override
 	public String toString() {
-		return "Merce [contenuto=" + contenuto + "]";
+		return "Merce [contenuto=" + contenuto + ", costo=" + costo + ", destinazione=" + destinazione + "]";
 	}
-	
-	
-	
-	
 
+	
+	
 }

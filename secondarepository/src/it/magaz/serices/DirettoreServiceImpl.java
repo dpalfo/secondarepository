@@ -125,7 +125,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println("inserisci il peso");
 			cibo.getContenuto().setPeso(input.nextDouble());
 			System.out.println("inserisci il costo");
-			cibo.getContenuto().setCosto(input.nextDouble());
+			cibo.setCosto(input.nextDouble());
 			cibo.setMezziMerce(mezziCibo);
 			cibo.setOperaiMerce(operai);
 			System.out.println("inserisci la quantita");
@@ -141,7 +141,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println("inserisci il peso");
 			abbigliamento.getContenuto().setPeso(input.nextDouble());
 			System.out.println("inserisci il costo");
-			abbigliamento.getContenuto().setCosto(input.nextDouble());
+			abbigliamento.setCosto(input.nextDouble());
 			abbigliamento.setMezziMerce(mezziAbbigliamento);
 			abbigliamento.setOperaiMerce(operaiAbb);
 			System.out.println("inserisci la quantita");
@@ -157,7 +157,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println("inserisci il peso");
 			informatica.getContenuto().setPeso(input.nextDouble());
 			System.out.println("inserisci il costo");
-			informatica.getContenuto().setCosto(input.nextDouble());
+			informatica.setCosto(input.nextDouble());
 			informatica.setMezziMerce(mezziInfo);
 			informatica.setOperaiMerce(operaiInfo);
 			System.out.println("inserisci la quantita");
@@ -185,8 +185,20 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi) {
 		// TODO Auto-generated method stub
-		
-		return null;
+		double costo_max=0;
+		double costo_finale=0;
+		Mezzo<?>mezzo=null;
+		for(int i=0;i<mezzi.size();i++) {
+			costo_max=0;
+			for(int j=0;j<mezzi.get(i).getMerciPerMezzo().size();j++) {
+				costo_max=costo_max+mezzi.get(i).getMerciPerMezzo().get(j).getCosto();
+			}
+			if(costo_finale<costo_max) {
+				costo_finale=costo_max;
+				mezzo=mezzi.get(i);
+			}
+		}
+		return mezzo;
 	}
 
 	@Override
