@@ -167,7 +167,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			
 			
 		}
-		return null;
+		return merce;
 	}
 
 	@Override
@@ -185,6 +185,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
