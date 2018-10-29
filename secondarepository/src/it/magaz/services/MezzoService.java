@@ -1,4 +1,4 @@
-package it.magaz.serices;
+package it.magaz.services;
 
 public interface MezzoService {
 

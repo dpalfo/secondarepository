@@ -1,4 +1,4 @@
-package it.magaz.serices;
+package it.magaz.services;
 
 import java.util.ArrayList;
 import java.util.List;
