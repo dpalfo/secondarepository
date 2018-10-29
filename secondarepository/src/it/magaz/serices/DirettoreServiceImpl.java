@@ -72,8 +72,21 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public List<Autista> aggiungiAutista(Autista autista) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
+		System.out.println("Crea autista");
+		System.out.println("Inserisci l'ID dell'autista: ");
+		autista.setId(input.nextLong());
+		System.out.println("Inserisci il nome: ");
+		autista.setNome(input.nextLine());
+		System.out.println("Inserisci il cognome: ");
+		autista.setCognome(input.nextLine());
+		System.out.println("Inserisci l' eta: ");
+		autista.setEta(input.nextInt());
+		autista.setListmezaut(mez);
+		List<Autista> autis=new ArrayList<Autista>();
+		autis.add(autista);
+		
+		return autis;
 	}
 
 	@Override
