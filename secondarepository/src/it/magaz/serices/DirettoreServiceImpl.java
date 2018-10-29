@@ -1,5 +1,6 @@
 package it.magaz.serices;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,8 +31,18 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public List<Operaio> aggiungiOperaio(Operaio operaio) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Crea operaio");
+		System.out.println("Inserisci l'ID dell'operaio: ");
+		operaio.setId(input.nextLong());
+		System.out.println("Inserisci il nome: ");
+		operaio.setNome(input.nextLine());
+		System.out.println("Inserisci il cognome: ");
+		operaio.setCognome(input.nextLine());
+		System.out.println("Inserisci l' eta: ");
+		operaio.setEta(input.nextInt());
+		List<Operaio>oper=new ArrayList<Operaio>();
+		oper.add(operaio);
+		return oper;
 	}
 
 	@Override
