@@ -17,6 +17,8 @@ public class Merce<T> {
 	static List<Mezzo<?>> mezziMerce;
 	
 	static List<Operaio> operaiMerce;
+	
+	Destinazione destinazione;
 
 	public T getContenuto() {
 		return contenuto;
@@ -30,7 +32,7 @@ public class Merce<T> {
 		return quantita;
 	}
 
-	public static void setQuantita(int quantita) {
+	public void setQuantita(int quantita) {
 		Merce.quantita = quantita;
 	}
 
@@ -40,7 +42,7 @@ public class Merce<T> {
 		return mezziMerce;
 	}
 
-	public static void setMezziMerce(List<Mezzo<?>> mezziMerce) {
+	public void setMezziMerce(List<Mezzo<?>> mezziMerce) {
 		Merce.mezziMerce = mezziMerce;
 	}
 
@@ -48,7 +50,7 @@ public class Merce<T> {
 		return operaiMerce;
 	}
 
-	public static void setOperaiMerce(List<Operaio> operaiMerce) {
+	public void setOperaiMerce(List<Operaio> operaiMerce) {
 		Merce.operaiMerce = operaiMerce;
 	}
 

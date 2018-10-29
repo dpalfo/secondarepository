@@ -8,6 +8,9 @@ import it.magaz.model.Autista;
 import it.magaz.model.Camion;
 import it.magaz.model.Direttore;
 import it.magaz.model.Merce;
+import it.magaz.model.MerceAbbigliamento;
+import it.magaz.model.MerceCibo;
+import it.magaz.model.MerceInformatica;
 import it.magaz.model.Mezzo;
 import it.magaz.model.Nave;
 import it.magaz.model.Operaio;
@@ -108,8 +111,62 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Merce<?>> aggiungiMerce(Merce<?> merce) {
+	public List<Merce<?>> aggiungiMerce(List<Merce<?>> merce) {
 		// TODO Auto-generated method stub
+		System.out.println("che merce vuoi aggiungere? 1)cibo 2)abbugliamento 3)informatica");
+		int x=input.nextInt();
+		switch(x) {
+		case 1:
+			Merce<MerceCibo> cibo=new Merce<MerceCibo>(new MerceCibo());
+			List<Mezzo<?>>mezziCibo=new ArrayList<Mezzo<?>>();
+			List<Operaio>operai=new ArrayList<Operaio>();
+			System.out.println("inserisci id");
+			cibo.getContenuto().setId(input.nextLong());
+			System.out.println("inserisci il peso");
+			cibo.getContenuto().setPeso(input.nextDouble());
+			System.out.println("inserisci il costo");
+			cibo.getContenuto().setCosto(input.nextDouble());
+			cibo.setMezziMerce(mezziCibo);
+			cibo.setOperaiMerce(operai);
+			System.out.println("inserisci la quantita");
+			cibo.setQuantita(input.nextInt());
+			merce.add(cibo);
+			break;
+		case 2:
+			Merce<MerceAbbigliamento> abbigliamento=new Merce<MerceAbbigliamento>(new MerceAbbigliamento());
+			List<Mezzo<?>>mezziAbbigliamento=new ArrayList<Mezzo<?>>();
+			List<Operaio>operaiAbb=new ArrayList<Operaio>();
+			System.out.println("inserisci id");
+			abbigliamento.getContenuto().setId(input.nextLong());
+			System.out.println("inserisci il peso");
+			abbigliamento.getContenuto().setPeso(input.nextDouble());
+			System.out.println("inserisci il costo");
+			abbigliamento.getContenuto().setCosto(input.nextDouble());
+			abbigliamento.setMezziMerce(mezziAbbigliamento);
+			abbigliamento.setOperaiMerce(operaiAbb);
+			System.out.println("inserisci la quantita");
+			abbigliamento.setQuantita(input.nextInt());
+			merce.add(abbigliamento);
+			break;
+		case 3:
+			Merce<MerceInformatica> informatica=new Merce<MerceInformatica>(new MerceInformatica());
+			List<Mezzo<?>>mezziInfo=new ArrayList<Mezzo<?>>();
+			List<Operaio>operaiInfo=new ArrayList<Operaio>();
+			System.out.println("inserisci id");
+			informatica.getContenuto().setId(input.nextLong());
+			System.out.println("inserisci il peso");
+			informatica.getContenuto().setPeso(input.nextDouble());
+			System.out.println("inserisci il costo");
+			informatica.getContenuto().setCosto(input.nextDouble());
+			informatica.setMezziMerce(mezziInfo);
+			informatica.setOperaiMerce(operaiInfo);
+			System.out.println("inserisci la quantita");
+			informatica.setQuantita(input.nextInt());
+			merce.add(informatica);
+			break;
+			
+			
+		}
 		return null;
 	}
 
