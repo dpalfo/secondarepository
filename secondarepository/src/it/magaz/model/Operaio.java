@@ -19,6 +19,18 @@ public class Operaio extends Persona  {
 		this.merce = merce;
 	}
 	
+	
+	
+	public Operaio(long id, Merce merce) {
+		super();
+		this.id = id;
+		this.merce = merce;
+	}
+	
+	
+	public Operaio() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "Operaio [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", eta=" + eta + "]";

@@ -19,6 +19,17 @@ public class Direttore extends Persona {
 		this.codic = codic;
 	}
 	
+	
+	public Direttore(long id, String codic) {
+		super();
+		this.id = id;
+		this.codic = codic;
+	}
+	
+	
+	public Direttore() {
+		super();
+	}
 	@Override
 	public String toString() {
 		return "Direttore [id=" + id + ", codic=" + codic + ", nome=" + nome + ", cognome=" + cognome + ", eta=" + eta

@@ -20,9 +20,21 @@ public class Autista extends Persona  {
 	public void setListmezaut(List<Mezzo> listmezaut) {
 		this.listmezaut = listmezaut;
 	}
+	
+	
+	public Autista(long id, List<Mezzo> listmezaut) {
+		super();
+		this.id = id;
+		this.listmezaut = listmezaut;
+	}
+	
+	
+	public Autista() {
+		super();
+	}
 	@Override
 	public String toString() {
-		return "Autista [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", eta=" + eta + "]";
+		return "Autista [id=" + id + "]";
 	}
 	
 	
