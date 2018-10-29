@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import it.magaz.model.Autista;
+import it.magaz.model.Camion;
 import it.magaz.model.Direttore;
 import it.magaz.model.Merce;
 import it.magaz.model.Mezzo;
@@ -47,27 +48,43 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Mezzo<?>> aggiuingiMezzo(Mezzo<?> mezzo) {
+	public List<Mezzo<?>> aggiuingiMezzo(List<Mezzo<?>> mezzo) {
 		// TODO Auto-generated method stub
 		System.out.println("che mezzo vuoi aggiungere? 1)nave 2)camion");
 		int x=input.nextInt();
 		switch(x) {
 		case 1:
 			Mezzo<Nave> nave=new Mezzo<Nave>(new Nave());
-			List<Autista> autisti=new ArrayList<Autista>();
-			List<Merce<?>> merci=new ArrayList<Merce<?>>();
+			List<Autista> autistiNave=new ArrayList<Autista>();
+			List<Merce<?>> merciNave=new ArrayList<Merce<?>>();
 			System.out.println("inserisci id nave");
 			nave.getTipo().setId(input.nextLong());
 			System.out.println("inserisci il peso massimo che puo trasportare");
 			nave.getTipo().setpMax(input.nextDouble());
 			System.out.println("inserisci il numero di telaio");
 			nave.getTipo().setnTelaio(input.nextLine());
-			nave.setAutistiPerMezzo(autisti);
-			nave.setMerciPerMezzo(merci);
-			
-			
-		}
-		return null;
+			nave.getTipo().setpTot(0);
+			nave.setAutistiPerMezzo(autistiNave);
+			nave.setMerciPerMezzo(merciNave);
+			mezzo.add(nave);
+			break;
+		case 2:
+			Mezzo<Camion> camion=new Mezzo<Camion>(new Camion());
+			List <Autista> autistiCamion=new ArrayList<Autista>();
+			List<Merce<?>> merciCamion=new ArrayList<Merce<?>>();
+			System.out.println("inserisci id camion");
+			camion.getTipo().setId(input.nextLong());
+			System.out.println("inserisci il peso massimo che puo trasportare");
+			camion.getTipo().setpMax(input.nextDouble());
+			System.out.println("inserisci il numero di telaio");
+			camion.getTipo().setnTelaio(input.nextLine());
+			camion.getTipo().setpTot(0);
+			camion.setAutistiPerMezzo(autistiCamion);
+			camion.setMerciPerMezzo(merciCamion);
+			mezzo.add(camion);
+			break;
+			}
+		return mezzo;
 	}
 
 	@Override

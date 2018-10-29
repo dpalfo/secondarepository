@@ -12,7 +12,7 @@ public interface DirettoreService {
 	
     public Direttore creaDirettore (Direttore direttore);
 	public List<Operaio> aggiungiOperaio(Operaio operaio);
-	public List<Mezzo<?>> aggiuingiMezzo(Mezzo<?>mezzo);
+	public List<Mezzo<?>> aggiuingiMezzo(List<Mezzo<?>>mezzo);
 	public List<Autista> aggiungiAutista(Autista autista);
 	public List<Merce<?>> aggiungiMerce(Merce<?> merce);
 	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
