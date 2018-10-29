@@ -85,7 +85,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		autista.setEta(input.nextInt());
 		autista.setListmezaut(mez);
 		List<Autista> autis=new ArrayList<Autista>();
-		autis.add(autista);;
+		autis.add(autista);
 		
 		return autis;
 	}
