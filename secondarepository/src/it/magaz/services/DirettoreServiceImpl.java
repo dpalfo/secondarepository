@@ -173,9 +173,20 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci) {
 		// TODO Auto-generated method stub
-		
-		return null;
+		int trasporto_max=0;
+		int trasporto_finale=0;
+		Merce<?> merce=null;
+		for(int i=0;i<merci.size();i++) {
+			trasporto_max=0;
+			trasporto_max=trasporto_max+merci.get(i).getMezziMerce().size();
+			if(trasporto_finale<trasporto_max) {
+				trasporto_finale=trasporto_max;
+				merce=merci.get(i);
+			}
+		}
+		return merce;
 	}
+	
 
 	@Override
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi) {
