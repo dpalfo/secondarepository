@@ -1,6 +1,6 @@
 package it.magaz.model;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class Merce<T> {
@@ -14,7 +14,7 @@ public class Merce<T> {
 	
 	static int quantita;
 
-	static List<Mezzo> mezziMerce;
+	static List<Mezzo<?>> mezziMerce;
 	
 	static List<Operaio> operaiMerce;
 
@@ -34,11 +34,13 @@ public class Merce<T> {
 		Merce.quantita = quantita;
 	}
 
-	public static List<Mezzo> getMezziMerce() {
+	
+
+	public static List<Mezzo<?>> getMezziMerce() {
 		return mezziMerce;
 	}
 
-	public static void setMezziMerce(List<Mezzo> mezziMerce) {
+	public static void setMezziMerce(List<Mezzo<?>> mezziMerce) {
 		Merce.mezziMerce = mezziMerce;
 	}
 
