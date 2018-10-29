@@ -123,7 +123,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println("inserisci id");
 			cibo.getContenuto().setId(input.nextLong());
 			System.out.println("inserisci il peso");
-			cibo.getContenuto().setPeso(input.nextDouble());
+			cibo.setPeso(input.nextDouble());
 			System.out.println("inserisci il costo");
 			cibo.setCosto(input.nextDouble());
 			cibo.setMezziMerce(mezziCibo);
@@ -139,7 +139,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println("inserisci id");
 			abbigliamento.getContenuto().setId(input.nextLong());
 			System.out.println("inserisci il peso");
-			abbigliamento.getContenuto().setPeso(input.nextDouble());
+			abbigliamento.setPeso(input.nextDouble());
 			System.out.println("inserisci il costo");
 			abbigliamento.setCosto(input.nextDouble());
 			abbigliamento.setMezziMerce(mezziAbbigliamento);
@@ -155,7 +155,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println("inserisci id");
 			informatica.getContenuto().setId(input.nextLong());
 			System.out.println("inserisci il peso");
-			informatica.getContenuto().setPeso(input.nextDouble());
+			informatica.setPeso(input.nextDouble());
 			System.out.println("inserisci il costo");
 			informatica.setCosto(input.nextDouble());
 			informatica.setMezziMerce(mezziInfo);
@@ -173,13 +173,28 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci) {
 		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 
 	@Override
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi) {
 		// TODO Auto-generated method stub
-		return null;
+		double peso_max=0;
+		double peso_finale=0;
+		Mezzo<?>mezzo=null;
+		for(int i=0;i<mezzi.size();i++) {
+			peso_max=0;
+			for(int j=0;j<mezzi.get(i).getMerciPerMezzo().size();j++) {
+				peso_max=peso_max+mezzi.get(i).getMerciPerMezzo().get(j).getPeso();
+			}
+			if(peso_finale<peso_max) {
+				peso_finale=peso_max;
+				mezzo=mezzi.get(i);
+			}
+		}
+		return mezzo;
 	}
 
 	@Override

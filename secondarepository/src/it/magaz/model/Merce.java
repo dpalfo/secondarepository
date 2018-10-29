@@ -20,6 +20,8 @@ public class Merce<T> {
 	
 	double costo;
 	
+	double peso;
+	
 	Destinazione destinazione;
 
 	public T getContenuto() {
@@ -71,12 +73,24 @@ public class Merce<T> {
 	public void setDestinazione(Destinazione destinazione) {
 		this.destinazione = destinazione;
 	}
+	
+	
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
 
 	@Override
 	public String toString() {
-		return "Merce [contenuto=" + contenuto + ", costo=" + costo + ", destinazione=" + destinazione + "]";
+		return "Merce [contenuto=" + contenuto + ", costo=" + costo + ", peso=" + peso + ", destinazione="
+				+ destinazione + "]";
 	}
 
+	
 	
 	
 }
