@@ -19,5 +19,5 @@ public interface DirettoreService {
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi);
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi);
 	public Autista autistaPiuMezzi(List<Autista>autisti);
-	public Merce<?> naveCamion(List<Merce<?>> merci);
+	public List<Merce<?>> naveCamion(List<Merce<?>> merci);
 }

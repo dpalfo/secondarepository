@@ -243,9 +243,43 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public Merce<?> naveCamion(List<Merce<?>> merci) {
+	public List<Merce<?>> naveCamion(List<Merce<?>> merci) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Merce<?>> lista=new ArrayList<Merce<?>>();
+		int trasporto_max=0;
+		int trasporto_finale=0;
+		int t=0;
+		int f=0;
+		Merce<?> merce=null;
+		Merce<?>merce1=null;
+		String mezzo="Nave";
+		String mezzo1="Camion";
+		for (int i=0;i<merci.size();i++) {
+			trasporto_max=0;
+			for(int j=0;j<merci.get(i).getMezziMerce().size();j++) {
+				if(mezzo.equals(merci.get(i).getMezziMerce().get(j).getClass().getName())) {
+			trasporto_max=trasporto_max+merci.get(i).getMezziMerce().size();
+				}
+			}
+			if(trasporto_finale<trasporto_max) {
+				trasporto_finale=trasporto_max;
+				merce=merci.get(i);
+			}
+		}
+		lista.add(merce);
+		for(int i=0;i<merci.size();i++) {
+			t=0;
+			for(int j=0;j<merci.get(i).getMezziMerce().size();j++) {
+				if(mezzo1.equals(merci.get(i).getMezziMerce().get(j).getClass().getName())) {
+					t=t+merci.get(i).getMezziMerce().size();
+				}
+			}
+			if(f<t) {
+				f=t;
+				merce1=merci.get(i);
+			}
+		}
+		lista.add(merce1);
+		return lista;
 	}
-
 }
