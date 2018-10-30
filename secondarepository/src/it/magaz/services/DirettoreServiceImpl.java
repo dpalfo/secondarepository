@@ -332,10 +332,12 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public void vediMerci(Magazzino magazzino) {
 		
-		List<Merce<?>>listMerce=magazzino.getMerci();	
+		List<Merce<?>>listMerce=magazzino.getMerci();
+		int i=0;
 		for(Merce<?> j: listMerce)
 		{
-			System.out.println(j);
+			System.out.println(i+")"+j);
+			i++;
 		}
 	}
 }
