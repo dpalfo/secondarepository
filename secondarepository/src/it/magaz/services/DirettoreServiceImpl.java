@@ -352,9 +352,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public void vediMerci(Magazzino magazzino) {
-		// TODO Auto-generated method stub
-		
+	public void vediMerci(Magazzino magazzino) {		
 		List<Merce<?>>listMerce=magazzino.getMerci();	
 		for(Merce<?> j: listMerce)
 		{
