@@ -15,12 +15,12 @@ public interface DirettoreService {
 	public List<Operaio> aggiungiOperaio(Magazzino magazzino);
     public List<Mezzo<?>> aggiuingiMezzo(Magazzino magazzino);
 	public List<Autista> aggiungiAutista(Magazzino magazzino);
-	public List<Merce<?>> aggiungiMerce(List <Merce<?>> merce);
-    public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
-	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi);
-	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi);
-	public Autista autistaPiuMezzi(List<Autista>autisti);
-	public List<Merce<?>> naveCamion(List<Merce<?>> merci);
+	public List<Merce<?>> aggiungiMerce(Magazzino magazzino);
+    public Merce<?> mercePiuTrasportata(Magazzino magazzino);
+	public Mezzo<?> mezzoPiuPesante(Magazzino magazzino);
+	public Mezzo<?> guadagnoMaggiore(Magazzino magazzino);
+	public Autista autistaPiuMezzi(Magazzino magazzino);
+	public List<Merce<?>> naveCamion(Magazzino magazzino);
 	public void vediAutisti(Magazzino magazzino);
 	public void vediMezzi (Magazzino magazzino);
 	public void vediOperai(Magazzino magazzino);

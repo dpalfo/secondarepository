@@ -112,9 +112,9 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Merce<?>> aggiungiMerce(List<Merce<?>> merce) {
+	public List<Merce<?>> aggiungiMerce(Magazzino magazzino) {
 		// TODO Auto-generated method stub
-		System.out.println("che merce vuoi aggiungere? 1)cibo 2)abbugliamento 3)informatica");
+		System.out.println("che merce vuoi aggiungere? 1)cibo 2)abbigliamento 3)informatica");
 		int x=input.nextInt();
 		switch(x) {
 		case 1:
@@ -133,7 +133,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			cibo.getContenuto().setDestinazione(destinazione);
             System.out.println("inserisci la quantita");
 			cibo.setQuantita(input.nextInt());
-			merce.add(cibo);
+			magazzino.getMerci().add(cibo);
 			break;
 		case 2:
 			Merce<MerceAbbigliamento> abbigliamento=new Merce<MerceAbbigliamento>(new MerceAbbigliamento());
@@ -151,7 +151,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			abbigliamento.getContenuto().setDestinazione(destinazioneabb);
 			System.out.println("inserisci la quantita");
 			abbigliamento.setQuantita(input.nextInt());
-			merce.add(abbigliamento);
+			magazzino.getMerci().add(abbigliamento);
 			break;
 		case 3:
 			Merce<MerceInformatica> informatica=new Merce<MerceInformatica>(new MerceInformatica());
@@ -169,26 +169,26 @@ public class DirettoreServiceImpl implements DirettoreService {
 			informatica.getContenuto().setDestinazione(destinazioneinf);
 			System.out.println("inserisci la quantita");
 			informatica.setQuantita(input.nextInt());
-			merce.add(informatica);
+			magazzino.getMerci().add(informatica);
 			break;
 			
 			
 		}
-		return merce;
+		return magazzino.getMerci();
 	}
 
 	@Override
-	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci) {
+	public Merce<?> mercePiuTrasportata(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		int trasporto_max=0;
 		int trasporto_finale=0;
 		Merce<?> merce=null;
-		for(int i=0;i<merci.size();i++) {
+		for(Merce<?> i: magazzino.getMerci()) {
 			trasporto_max=0;
-			trasporto_max=trasporto_max+merci.get(i).getMezziMerce().size();
+			trasporto_max=trasporto_max+i.getMezziMerce().size();
 			if(trasporto_finale<trasporto_max) {
 				trasporto_finale=trasporto_max;
-				merce=merci.get(i);
+				merce=i;
 			}
 		}
 		return merce;
@@ -196,61 +196,61 @@ public class DirettoreServiceImpl implements DirettoreService {
 	
 
 	@Override
-	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi) {
+	public Mezzo<?> mezzoPiuPesante(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		double peso_max=0;
 		double peso_finale=0;
 		Mezzo<?>mezzo=null;
-		for(int i=0;i<mezzi.size();i++) {
+		for(Mezzo<?> i: magazzino.getMezzi()) {
 			peso_max=0;
-			for(int j=0;j<mezzi.get(i).getMerciPerMezzo().size();j++) {
-				peso_max=peso_max+mezzi.get(i).getMerciPerMezzo().get(j).getPeso();
+			for(Merce<?> j: i.getMerciPerMezzo()) {
+				peso_max=peso_max+j.getPeso();
 			}
 			if(peso_finale<peso_max) {
 				peso_finale=peso_max;
-				mezzo=mezzi.get(i);
+				mezzo=i;
 			}
 		}
 		return mezzo;
 	}
 
 	@Override
-	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi) {
+	public Mezzo<?> guadagnoMaggiore(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		double costo_max=0;
 		double costo_finale=0;
 		Mezzo<?>mezzo=null;
-		for(int i=0;i<mezzi.size();i++) {
+		for(Mezzo<?> i: magazzino.getMezzi()) {
 			costo_max=0;
-			for(int j=0;j<mezzi.get(i).getMerciPerMezzo().size();j++) {
-				costo_max=costo_max+mezzi.get(i).getMerciPerMezzo().get(j).getCosto();
+			for(Merce<?>j:i.getMerciPerMezzo()) {
+				costo_max=costo_max+j.getCosto();
 			}
 			if(costo_finale<costo_max) {
 				costo_finale=costo_max;
-				mezzo=mezzi.get(i);
+				mezzo=i;
 			}
 		}
 		return mezzo;
 	}
 
 	@Override
-	public Autista autistaPiuMezzi(List<Autista> autisti) {
+	public Autista autistaPiuMezzi(Magazzino magazzino) {
 		int max_mezzi=0;
 		int mezzi_finale=0;
 		Autista auto=null;
-		for(int i=0;i<autisti.size();i++){
+		for(Autista i: magazzino.getAutisti()){
 			max_mezzi=0;
-			max_mezzi=max_mezzi+autisti.get(i).getListmezaut().size();
+			max_mezzi=max_mezzi+i.getListmezaut().size();
 			if(mezzi_finale<max_mezzi){
 				mezzi_finale=max_mezzi;
-				auto=autisti.get(i);
+				auto=i;
 			}
 		}
 		return auto;
 	}
 
 	@Override
-	public List<Merce<?>> naveCamion(List<Merce<?>> merci) {
+	public List<Merce<?>> naveCamion(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		List<Merce<?>> lista=new ArrayList<Merce<?>>();
 		int trasporto_max=0;
@@ -261,29 +261,29 @@ public class DirettoreServiceImpl implements DirettoreService {
 		Merce<?>merce1=null;
 		String mezzo="Nave";
 		String mezzo1="Camion";
-		for (int i=0;i<merci.size();i++) {
+		for (Merce<?>i:magazzino.getMerci()) {
 			trasporto_max=0;
-			for(int j=0;j<merci.get(i).getMezziMerce().size();j++) {
-				if(mezzo.equals(merci.get(i).getMezziMerce().get(j).getClass().getName())) {
-			trasporto_max=trasporto_max+merci.get(i).getMezziMerce().size();
+			for(Mezzo<?>j:i.getMezziMerce()) {
+				if(mezzo.equals(j.getClass().getName())) {
+			trasporto_max=trasporto_max+i.getMezziMerce().size();
 				}
 			}
 			if(trasporto_finale<trasporto_max) {
 				trasporto_finale=trasporto_max;
-				merce=merci.get(i);
+				merce=i;
 			}
 		}
 		lista.add(merce);
-		for(int i=0;i<merci.size();i++) {
+		for(Merce<?>i:magazzino.getMerci()) {
 			t=0;
-			for(int j=0;j<merci.get(i).getMezziMerce().size();j++) {
-				if(mezzo1.equals(merci.get(i).getMezziMerce().get(j).getClass().getName())) {
-					t=t+merci.get(i).getMezziMerce().size();
+			for(Mezzo<?>j:i.getMezziMerce()) {
+				if(mezzo1.equals(j.getClass().getName())) {
+					t=t+i.getMezziMerce().size();
 				}
 			}
 			if(f<t) {
 				f=t;
-				merce1=merci.get(i);
+				merce1=i;
 			}
 		}
 		lista.add(merce1);
