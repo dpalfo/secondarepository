@@ -304,6 +304,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 	@Override
 	public void associaOperaiMerci(Magazzino magazzino) {
