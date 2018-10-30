@@ -319,7 +319,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		int numAutista = input.nextInt();
 		Autista autista = magazzino.getAutisti().get(numAutista);
 		vediMezzi(magazzino);
-		System.out.print("Scegli mezzo: ");
+		System.out.print("Scegli mezzo: ");;
 		int numMezzo = input.nextInt();;
 		Mezzo<?> mezzo = magazzino.getMezzi().get(numMezzo);
 		autista.getListmezaut().add(mezzo);
