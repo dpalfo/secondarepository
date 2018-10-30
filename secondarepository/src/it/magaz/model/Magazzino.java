@@ -10,6 +10,15 @@ public class Magazzino {
 	List<Mezzo<?>> mezzi;
 	List<Autista> autisti;
 	
+
+
+	public List<Autista> getAutisti() {
+		return autisti;
+	}
+	public void setAutisti(List<Autista> autisti) {
+		this.autisti = autisti;
+	}
+
 	public List<Direttore> getDirettori() {
 		return direttori;
 	}
@@ -35,12 +44,11 @@ public class Magazzino {
 		this.mezzi = mezzi;
 	}
 	
-	public List<Autista> getAutisti() {
-		return autisti;
-	}
-	public void setAutisti(List<Autista> autisti) {
-		this.autisti = autisti;
-	}
+
+
+	public Magazzino() {}
+	
+
 	public Magazzino(List<Direttore> direttori, List<Operaio> operai, List<Merce<?>> merci, List<Mezzo<?>> mezzi,
 			List<Autista> autisti) {
 		super();
@@ -49,9 +57,7 @@ public class Magazzino {
 		this.merci = merci;
 		this.mezzi = mezzi;
 		this.autisti = autisti;
-	}
-	public Magazzino() {
-		super();
+
 	}
 	@Override
 	public String toString() {

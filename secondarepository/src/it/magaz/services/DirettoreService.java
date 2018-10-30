@@ -12,15 +12,18 @@ import it.magaz.model.Operaio;
 public interface DirettoreService {
 	
     public Direttore creaDirettore (Direttore direttore);
-	public List<Operaio> aggiungiOperaio(Operaio operaio);
-	public Magazzino aggiuingiMezzo(Magazzino magazzino);
-	public Magazzino aggiungiAutista(Magazzino magazzino);
-	public Magazzino aggiungiMerce(Magazzino magazzino);
-	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
+	public List<Operaio> aggiungiOperaio(Magazzino magazzino);
+    public List<Mezzo<?>> aggiuingiMezzo(Magazzino magazzino);
+	public List<Autista> aggiungiAutista(Magazzino magazzino);
+	public List<Merce<?>> aggiungiMerce(List <Merce<?>> merce);
+    public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi);
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi);
 	public Autista autistaPiuMezzi(List<Autista>autisti);
 	public List<Merce<?>> naveCamion(List<Merce<?>> merci);
-	public void vediAutisti (Direttore direttore);
+	public void vediAutisti(Magazzino magazzino);
+	public void associaAutistaMezzo (Magazzino magazzino);
+	public void associaOperaiMerci (Magazzino magazzino);
+	public void associaMerciMezzi (Magazzino magazzino);
 	
 }

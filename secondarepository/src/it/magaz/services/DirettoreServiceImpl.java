@@ -37,8 +37,9 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Operaio> aggiungiOperaio(Operaio operaio) {
+	public List<Operaio> aggiungiOperaio(Magazzino magazzino) {
 		System.out.println("Crea operaio");
+		Operaio operaio=new Operaio();
 		System.out.println("Inserisci l'ID dell'operaio: ");
 		operaio.setId(input.nextLong());
 		System.out.println("Inserisci il nome: ");
@@ -47,13 +48,12 @@ public class DirettoreServiceImpl implements DirettoreService {
 		operaio.setCognome(input.nextLine());
 		System.out.println("Inserisci l' eta: ");
 		operaio.setEta(input.nextInt());
-		List<Operaio>oper=new ArrayList<Operaio>();
-		oper.add(operaio);
-		return oper;
+		magazzino.getOperai().add(operaio);
+		return magazzino.getOperai();
 	}
 
 	@Override
-	public Magazzino aggiuingiMezzo(Magazzino magazzino) {
+	public List<Mezzo<?>> aggiuingiMezzo(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		System.out.println("che mezzo vuoi aggiungere? 1)nave 2)camion");
 		int x=input.nextInt();
@@ -88,12 +88,12 @@ public class DirettoreServiceImpl implements DirettoreService {
 			camion.setMerciPerMezzo(merciCamion);
 			magazzino.getMezzi().add(camion);
 			break;
-			}
-		return magazzino;
-	}
+		}
+			return magazzino.getMezzi();
+		}
 
 	@Override
-	public Magazzino aggiungiAutista(Magazzino magazzino) {
+	public List<Autista> aggiungiAutista(Magazzino magazzino) {
 		
 		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
 		Autista autista = new Autista();
@@ -291,11 +291,29 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public void vediAutisti(Direttore direttore) {
-		List<Autista> listaAutista = direttore.getListaAutisti();
+	public void vediAutisti(Magazzino magazzino) {
+		List<Autista> listaAutista = magazzino.getAutisti();
 		for(Autista i: listaAutista)
 		{
 		System.out.println(i);
 		}
+	}
+
+	@Override
+	public void associaAutistaMezzo(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void associaOperaiMerci(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void associaMerciMezzi(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
 	}
 }
