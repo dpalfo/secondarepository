@@ -8,6 +8,14 @@ public class Magazzino {
 	List<Operaio> operai;
 	List<Merce<?>> merci;
 	List<Mezzo<?>> mezzi;
+	List<Autista> autisti;
+	
+	public List<Autista> getAutisti() {
+		return autisti;
+	}
+	public void setAutisti(List<Autista> autisti) {
+		this.autisti = autisti;
+	}
 	public List<Direttore> getDirettori() {
 		return direttori;
 	}
@@ -32,20 +40,22 @@ public class Magazzino {
 	public void setMezzi(List<Mezzo<?>> mezzi) {
 		this.mezzi = mezzi;
 	}
-	public Magazzino(List<Direttore> direttori, List<Operaio> operai, List<Merce<?>> merci, List<Mezzo<?>> mezzi) {
+	
+	public Magazzino() {}
+	
+	public Magazzino(List<Direttore> direttori, List<Operaio> operai, List<Merce<?>> merci, List<Mezzo<?>> mezzi,
+			List<Autista> autisti) {
 		super();
 		this.direttori = direttori;
 		this.operai = operai;
 		this.merci = merci;
 		this.mezzi = mezzi;
-	}
-	public Magazzino() {
-		super();
+		this.autisti = autisti;
 	}
 	@Override
 	public String toString() {
 		return "Magazzino [direttori=" + direttori + ", operai=" + operai + ", merci=" + merci + ", mezzi=" + mezzi
-				+ "]";
+				+ ", autisti=" + autisti + "]";
 	}
 	
 	

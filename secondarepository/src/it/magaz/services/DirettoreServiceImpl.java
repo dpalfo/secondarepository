@@ -8,6 +8,7 @@ import it.magaz.model.Autista;
 import it.magaz.model.Camion;
 import it.magaz.model.Destinazione;
 import it.magaz.model.Direttore;
+import it.magaz.model.Magazzino;
 import it.magaz.model.Merce;
 import it.magaz.model.MerceAbbigliamento;
 import it.magaz.model.MerceCibo;
@@ -92,7 +93,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Autista> aggiungiAutista(Direttore direttore) {
+	public List<Autista> aggiungiAutista(Magazzino magazzino) {
 		
 		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
 		Autista autista = new Autista();
@@ -106,8 +107,8 @@ public class DirettoreServiceImpl implements DirettoreService {
 		System.out.println("Inserisci l' eta: ");
 		autista.setEta(input.nextInt());
 		autista.setListmezaut(mez);
-		direttore.getListaAutisti().add(autista);
-		return direttore.getListaAutisti();
+		magazzino.getAutisti();
+		return magazzino.getAutisti();
 	}
 
 	@Override
@@ -290,11 +291,29 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public void vediAutisti(Direttore direttore) {
-		List<Autista> listaAutista = direttore.getListaAutisti();
+	public void vediAutisti(Magazzino magazzino) {
+		List<Autista> listaAutista = magazzino.getAutisti();
 		for(Autista i: listaAutista)
 		{
 		System.out.println(i);
 		}
+	}
+
+	@Override
+	public void associaAutistaMezzo(Magazzino magazzino) {
+		
+		
+	}
+
+	@Override
+	public void associaOperaiMerci(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void associaMerciMezzi(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
 	}
 }
