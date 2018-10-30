@@ -21,4 +21,5 @@ public interface DirettoreService {
 	public Autista autistaPiuMezzi(List<Autista>autisti);
 	public List<Merce<?>> naveCamion(List<Merce<?>> merci);
 	public void vediAutisti (Direttore direttore);
+	
 }
