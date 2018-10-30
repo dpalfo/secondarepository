@@ -22,6 +22,8 @@ public interface DirettoreService {
 	public Autista autistaPiuMezzi(List<Autista>autisti);
 	public List<Merce<?>> naveCamion(List<Merce<?>> merci);
 	public void vediAutisti(Magazzino magazzino);
+	public void vediOperai(Magazzino magazzino);
+	public void vediMerci(Magazzino magazzino);
 	public void associaAutistaMezzo (Magazzino magazzino);
 	public void associaOperaiMerci (Magazzino magazzino);
 	public void associaMerciMezzi (Magazzino magazzino);

@@ -315,5 +315,18 @@ public class DirettoreServiceImpl implements DirettoreService {
 	public void associaMerciMezzi(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		
+		
+	}
+
+	@Override
+	public void vediOperai(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void vediMerci(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
 	}
 }
