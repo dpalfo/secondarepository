@@ -92,6 +92,7 @@ public class Main {
 			else
 			{
 				long b = Long.parseLong(codice);
+				if(!magazzino.getAutisti().isEmpty()) {
 				for(Autista a: magazzino.getAutisti()) {
 					if (b == a.getId()) {
 						System.out.println("Benvenuto "+ a.getNome() + " vuoi vedere le caratteristiche dei mezzi da te guidati ?");
@@ -100,20 +101,18 @@ public class Main {
 						{
 							autista.vediMezzi(a);
 						}
-					 else if (magazzino.getAutisti().isEmpty()) {
-							System.out.println("non sei registrato");	
-					 }
-					 else
-					 {
-							System.out.println("non sei registrato");
-					 }
-						
-					}
-						
+			
 					}
 				}
+				}
+				else
+				 {
+						System.out.println("non sei registrato");
+				 }
+					
 			}
 		}
 	}
+}
 }
 }
