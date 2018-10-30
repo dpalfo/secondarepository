@@ -329,7 +329,15 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public void associaOperaiMerci(Magazzino magazzino) {
-		// TODO Auto-generated method stub
+		vediOperai(magazzino);
+		System.out.print("Scegli l'operaio: ");
+		int nOperaio=input.nextInt();
+		Operaio operaio=magazzino.getOperai().get(nOperaio);
+		vediMerci(magazzino);
+		System.out.print("Scegli la merce: ");
+		int nMerce=input.nextInt();
+		Merce<?>merce=magazzino.getMerci().get(nMerce);
+		operaio.setMerce(merce);
 		
 		
 	}
