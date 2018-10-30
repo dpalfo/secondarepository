@@ -13,11 +13,12 @@ public interface DirettoreService {
     public Direttore creaDirettore (Direttore direttore);
 	public List<Operaio> aggiungiOperaio(Operaio operaio);
 	public List<Mezzo<?>> aggiuingiMezzo(List<Mezzo<?>>mezzo);
-	public List<Autista> aggiungiAutista(Autista autista);
+	public List<Autista> aggiungiAutista(Direttore direttore);
 	public List<Merce<?>> aggiungiMerce(List <Merce<?>> merce);
 	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi);
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi);
 	public Autista autistaPiuMezzi(List<Autista>autisti);
 	public List<Merce<?>> naveCamion(List<Merce<?>> merci);
+	public void vediAutisti (Direttore direttore);
 }

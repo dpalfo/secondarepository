@@ -91,9 +91,10 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Autista> aggiungiAutista(Autista autista) {
+	public List<Autista> aggiungiAutista(Direttore direttore) {
 		
 		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
+		Autista autista = new Autista();
 		System.out.println("Crea autista");
 		System.out.println("Inserisci l'ID dell'autista: ");
 		autista.setId(input.nextLong());
@@ -104,10 +105,8 @@ public class DirettoreServiceImpl implements DirettoreService {
 		System.out.println("Inserisci l' eta: ");
 		autista.setEta(input.nextInt());
 		autista.setListmezaut(mez);
-		List<Autista> autis=new ArrayList<Autista>();
-		autis.add(autista);
-		
-		return autis;
+		direttore.getListaAutisti().add(autista);
+		return direttore.getListaAutisti();
 	}
 
 	@Override
@@ -281,5 +280,14 @@ public class DirettoreServiceImpl implements DirettoreService {
 		}
 		lista.add(merce1);
 		return lista;
+	}
+
+	@Override
+	public void vediAutisti(Direttore direttore) {
+		List<Autista> listaAutista = direttore.getListaAutisti();
+		for(Autista i: listaAutista)
+		{
+		System.out.println(i);
+		}
 	}
 }
