@@ -37,8 +37,9 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Operaio> aggiungiOperaio(Operaio operaio) {
+	public List<Operaio> aggiungiOperaio(Magazzino magazzino) {
 		System.out.println("Crea operaio");
+		Operaio operaio=new Operaio();
 		System.out.println("Inserisci l'ID dell'operaio: ");
 		operaio.setId(input.nextLong());
 		System.out.println("Inserisci il nome: ");
@@ -47,13 +48,12 @@ public class DirettoreServiceImpl implements DirettoreService {
 		operaio.setCognome(input.nextLine());
 		System.out.println("Inserisci l' eta: ");
 		operaio.setEta(input.nextInt());
-		List<Operaio>oper=new ArrayList<Operaio>();
-		oper.add(operaio);
-		return oper;
+		magazzino.getOperai().add(operaio);
+		return magazzino.getOperai();
 	}
 
 	@Override
-	public List<Mezzo<?>> aggiuingiMezzo(List<Mezzo<?>> mezzo) {
+	public List<Mezzo<?>> aggiuingiMezzo(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		System.out.println("che mezzo vuoi aggiungere? 1)nave 2)camion");
 		int x=input.nextInt();
@@ -71,7 +71,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			nave.getTipo().setpTot(0);
 			nave.setAutistiPerMezzo(autistiNave);
 			nave.setMerciPerMezzo(merciNave);
-			mezzo.add(nave);
+			magazzino.getMezzi().add(nave);
 			break;
 		case 2:
 			Mezzo<Camion> camion=new Mezzo<Camion>(new Camion());
@@ -86,11 +86,11 @@ public class DirettoreServiceImpl implements DirettoreService {
 			camion.getTipo().setpTot(0);
 			camion.setAutistiPerMezzo(autistiCamion);
 			camion.setMerciPerMezzo(merciCamion);
-			mezzo.add(camion);
+			magazzino.getMezzi().add(camion);
 			break;
-			}
-		return mezzo;
-	}
+		}
+			return magazzino.getMezzi();
+		}
 
 	@Override
 	public List<Autista> aggiungiAutista(Magazzino magazzino) {
@@ -107,7 +107,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		System.out.println("Inserisci l' eta: ");
 		autista.setEta(input.nextInt());
 		autista.setListmezaut(mez);
-		magazzino.getAutisti();
+		magazzino.getAutisti().add(autista);
 		return magazzino.getAutisti();
 	}
 
@@ -301,15 +301,14 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public void associaAutistaMezzo(Magazzino magazzino) {
-		
+		// TODO Auto-generated method stub
 		
 	}
+	
 
 	@Override
 	public void associaOperaiMerci(Magazzino magazzino) {
-		vediOperai(magazzino);
-		vediMerci(magazzino);
-		
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -317,21 +316,21 @@ public class DirettoreServiceImpl implements DirettoreService {
 	public void associaMerciMezzi(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	@Override
 	public void vediOperai(Magazzino magazzino) {
-		
 		List<Operaio>listOperai=magazzino.getOperai();
 		for(Operaio i: listOperai)
 		{
 			System.out.println(i);
 		}
+
 	}
 
 	@Override
 	public void vediMerci(Magazzino magazzino) {
-		
 		List<Merce<?>>listMerce=magazzino.getMerci();
 		int i=0;
 		for(Merce<?> j: listMerce)
@@ -339,5 +338,6 @@ public class DirettoreServiceImpl implements DirettoreService {
 			System.out.println(i+")"+j);
 			i++;
 		}
+
 	}
 }

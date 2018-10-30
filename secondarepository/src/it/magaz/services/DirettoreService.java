@@ -12,11 +12,11 @@ import it.magaz.model.Operaio;
 public interface DirettoreService {
 	
     public Direttore creaDirettore (Direttore direttore);
-	public List<Operaio> aggiungiOperaio(Operaio operaio);
-	public List<Mezzo<?>> aggiuingiMezzo(List<Mezzo<?>>mezzo);
+	public List<Operaio> aggiungiOperaio(Magazzino magazzino);
+    public List<Mezzo<?>> aggiuingiMezzo(Magazzino magazzino);
 	public List<Autista> aggiungiAutista(Magazzino magazzino);
 	public List<Merce<?>> aggiungiMerce(List <Merce<?>> merce);
-	public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
+    public Merce<?> mercePiuTrasportata(List<Merce<?>> merci);
 	public Mezzo<?> mezzoPiuPesante(List<Mezzo<?>> mezzi);
 	public Mezzo<?> guadagnoMaggiore(List<Mezzo<?>> mezzi);
 	public Autista autistaPiuMezzi(List<Autista>autisti);
