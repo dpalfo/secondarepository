@@ -54,8 +54,9 @@ public class Camion {
 	}
 	@Override
 	public String toString() {
-		return "Nave [id=" + id + ", pMax=" + pMax + ", Marca=" + Marca + ", nTelaio=" + nTelaio + ", pTot=" + pTot
+		return "Camion [id=" + id + ", pMax=" + pMax + ", Marca=" + Marca + ", nTelaio=" + nTelaio + ", pTot=" + pTot
 				+ "]";
 	}
+	
 
 }

@@ -48,10 +48,8 @@ public class Destinazione {
 	}
 	@Override
 	public String toString() {
-		return "Destinazione [id=" + id + ", nome=" + nome + ", mezziDestinazione=" + mezziDestinazione
-				+ ", merciDestinazione=" + merciDestinazione + "]";
+		return "Destinazione [id=" + id + ", nome=" + nome + "]";
 	}
-	
 	
 	
 }

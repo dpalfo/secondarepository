@@ -68,6 +68,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			nave.getTipo().setId(magazzino.getMezzi().size()+1);
 			System.out.println("inserisci il peso massimo che puo trasportare");
 			nave.getTipo().setpMax(input.nextDouble());
+			input.nextLine();
 			System.out.println("inserisci il numero di telaio");
 			nave.getTipo().setnTelaio(input.nextLine());
 			nave.getTipo().setpTot(0);
@@ -79,10 +80,10 @@ public class DirettoreServiceImpl implements DirettoreService {
 			Mezzo<Camion> camion=new Mezzo<Camion>(new Camion());
 			List <Autista> autistiCamion=new ArrayList<Autista>();
 			List<Merce<?>> merciCamion=new ArrayList<Merce<?>>();
-			System.out.println("inserisci id camion");
 			camion.getTipo().setId(magazzino.getMezzi().size()+1);
 			System.out.println("inserisci il peso massimo che puo trasportare");
 			camion.getTipo().setpMax(input.nextDouble());
+			input.nextLine();
 			System.out.println("inserisci il numero di telaio");
 			camion.getTipo().setnTelaio(input.nextLine());
 			camion.getTipo().setpTot(0);
@@ -137,6 +138,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			cibo.getContenuto().setDestinazione(destinazione);
             System.out.println("inserisci la quantita");
 			cibo.setQuantita(input.nextInt());
+			input.nextLine();
 			magazzino.getMerci().add(cibo);
 			break;
 		case 2:
@@ -156,7 +158,8 @@ public class DirettoreServiceImpl implements DirettoreService {
 			abbigliamento.getContenuto().setDestinazione(destinazioneabb);
 			System.out.println("inserisci la quantita");
 			abbigliamento.setQuantita(input.nextInt());
-			magazzino.getMerci().add(abbigliamento);
+			input.nextLine();
+            magazzino.getMerci().add(abbigliamento);
 			break;
 		case 3:
 			Merce<MerceInformatica> informatica=new Merce<MerceInformatica>(new MerceInformatica());
@@ -175,6 +178,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			informatica.getContenuto().setDestinazione(destinazioneinf);
 			System.out.println("inserisci la quantita");
 			informatica.setQuantita(input.nextInt());
+			input.nextLine();
 			magazzino.getMerci().add(informatica);
 			break;
 			

@@ -42,6 +42,8 @@ public class Direttore extends Persona {
 	}
 	@Override
 	public String toString() {
-		return "Direttore [id=" + id + ", codic=" + codic + ", listaAutisti=" + listaAutisti + "]";
+		return "Direttore [id=" + id + ", codic=" + codic + ", listaAutisti=" + listaAutisti + ", nome=" + nome
+				+ ", cognome=" + cognome + "]";
 	}
+	
 }

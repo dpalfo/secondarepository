@@ -7,6 +7,9 @@ import java.util.Scanner;
 import it.magaz.model.Autista;
 import it.magaz.model.Direttore;
 import it.magaz.model.Magazzino;
+import it.magaz.model.Merce;
+import it.magaz.model.Mezzo;
+import it.magaz.model.Operaio;
 import it.magaz.services.AutistaService;
 import it.magaz.services.AutistaServiceImpl;
 import it.magaz.services.DirettoreService;
@@ -19,8 +22,14 @@ public class Main {
 		Magazzino magazzino = new Magazzino();
 		List<Direttore> direttori = new ArrayList<>();
 		List<Autista> autisti=new ArrayList<>();
+		List<Operaio>operai=new ArrayList<>();
+		List<Mezzo<?>>mezzi=new ArrayList<>();
+		List<Merce<?>>merci=new ArrayList<>();
 		magazzino.setDirettori(direttori);
 		magazzino.setAutisti(autisti);
+		magazzino.setOperai(operai);
+		magazzino.setMerci(merci);
+		magazzino.setMezzi(mezzi);
 		DirettoreService direttore = new DirettoreServiceImpl();
 		AutistaService autista = new AutistaServiceImpl();
 		boolean exit=true;
@@ -39,9 +48,10 @@ public class Main {
 				System.out.println("Benvenuto " + i.getNome() + " cosa vuoi fare ?");
 				System.out.println("1) Assumi autista - 2) Assumi operaio - 3) Aggiungi merce - 4) Aggiungi mezzo\n"
 						+ "5) Vedi la merce più trasportata - 6) Vedi il mezzo più pesante - 7) Vedi trasporto più redditizio\n"
-						+ "8) Quale autista guida più mezzi - 9) Quale merce viaggia maggiormente in NAVE e quale in CAMION"
+						+ "8) Quale autista guida più mezzi - 9) Quale merce viaggia maggiormente in NAVE e quale in CAMION\n"
 						+ "10) Assegna mezzo all'autista - 11) Assegna operaio a merce - 12) Assegna merci ai mezzi");
 				int x =input.nextInt();
+				input.nextLine();
 				switch(x) {
 				
 				case 1:

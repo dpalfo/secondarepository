@@ -35,8 +35,9 @@ public class Autista extends Persona  {
 	}
 	@Override
 	public String toString() {
-		return "Autista [id=" + id + "]";
+		return "Autista [id=" + id + ", listmezaut=" + listmezaut + ", nome=" + nome + ", cognome=" + cognome + "]";
 	}
+	
 	
 	
 	
