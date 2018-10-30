@@ -8,6 +8,7 @@ import it.magaz.model.Autista;
 import it.magaz.model.Camion;
 import it.magaz.model.Destinazione;
 import it.magaz.model.Direttore;
+import it.magaz.model.Magazzino;
 import it.magaz.model.Merce;
 import it.magaz.model.MerceAbbigliamento;
 import it.magaz.model.MerceCibo;
@@ -52,7 +53,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public List<Mezzo<?>> aggiuingiMezzo(List<Mezzo<?>> mezzo) {
+	public Magazzino aggiuingiMezzo(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		System.out.println("che mezzo vuoi aggiungere? 1)nave 2)camion");
 		int x=input.nextInt();
@@ -70,7 +71,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			nave.getTipo().setpTot(0);
 			nave.setAutistiPerMezzo(autistiNave);
 			nave.setMerciPerMezzo(merciNave);
-			mezzo.add(nave);
+			magazzino.getMezzi().add(nave);
 			break;
 		case 2:
 			Mezzo<Camion> camion=new Mezzo<Camion>(new Camion());
@@ -85,14 +86,14 @@ public class DirettoreServiceImpl implements DirettoreService {
 			camion.getTipo().setpTot(0);
 			camion.setAutistiPerMezzo(autistiCamion);
 			camion.setMerciPerMezzo(merciCamion);
-			mezzo.add(camion);
+			magazzino.getMezzi().add(camion);
 			break;
 			}
-		return mezzo;
+		return magazzino;
 	}
 
 	@Override
-	public List<Autista> aggiungiAutista(Direttore direttore) {
+	public Magazzino aggiungiAutista(Magazzino magazzino) {
 		
 		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
 		Autista autista = new Autista();
@@ -106,8 +107,8 @@ public class DirettoreServiceImpl implements DirettoreService {
 		System.out.println("Inserisci l' eta: ");
 		autista.setEta(input.nextInt());
 		autista.setListmezaut(mez);
-		direttore.getListaAutisti().add(autista);
-		return direttore.getListaAutisti();
+		magazzino.getAutisti().add(autista);
+		return magazzino.getAutisti();
 	}
 
 	@Override
