@@ -293,16 +293,36 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public void vediAutisti(Magazzino magazzino) {
 		List<Autista> listaAutista = magazzino.getAutisti();
+		int j=0;
 		for(Autista i: listaAutista)
 		{
-		System.out.println(i);
+		System.out.println(j +") " + i);
+		j++;
+		}
+	}
+	
+	@Override
+	public void vediMezzi(Magazzino magazzino) {
+		List<Mezzo<?>> listaMezzi = magazzino.getMezzi();
+		int j = 0;
+		for(Mezzo<?> i: listaMezzi)
+		{
+			System.out.println(j+") " + i);
+			j++;
 		}
 	}
 
 	@Override
 	public void associaAutistaMezzo(Magazzino magazzino) {
-		
-		
+		vediAutisti(magazzino);
+		System.out.print("Scegli autista: ");
+		int numAutista = input.nextInt();
+		Autista autista = magazzino.getAutisti().get(numAutista);
+		vediMezzi(magazzino);
+		System.out.print("Scegli mezzo: ");
+		int numMezzo = input.nextInt();
+		Mezzo<?> mezzo = magazzino.getMezzi().get(numMezzo);
+		autista.getListmezaut().add(mezzo);
 	}
 
 	@Override
@@ -316,4 +336,6 @@ public class DirettoreServiceImpl implements DirettoreService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 }
