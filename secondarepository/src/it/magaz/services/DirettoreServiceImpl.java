@@ -342,26 +342,24 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public void vediOperai(Magazzino magazzino) {
-		// TODO Auto-generated method stub
-		
 		List<Operaio>listOperai=magazzino.getOperai();
+		int j =0;
 		for(Operaio i: listOperai)
 		{
-			System.out.println(i);
+			System.out.println(j+") " + i);
+			j++;
 		}
 
 	}
 
 	@Override
 	public void vediMerci(Magazzino magazzino) {
-		// TODO Auto-generated method stub
-		
-
-
 		List<Merce<?>>listMerce=magazzino.getMerci();	
+		int i=0;
 		for(Merce<?> j: listMerce)
 		{
-			System.out.println(j);
+			System.out.println(i+") "+j);
+			i++;
 		}
 
 	}
