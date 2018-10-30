@@ -62,33 +62,41 @@ public class DirettoreServiceImpl implements DirettoreService {
 		int x=input.nextInt();
 		switch(x) {
 		case 1:
+			double peso1=0;
 			Mezzo<Nave> nave=new Mezzo<Nave>(new Nave());
 			List<Autista> autistiNave=new ArrayList<Autista>();
 			List<Merce<?>> merciNave=new ArrayList<Merce<?>>();
+			nave.setAutistiPerMezzo(autistiNave);
+			nave.setMerciPerMezzo(merciNave);
 			nave.getTipo().setId(magazzino.getMezzi().size()+1);
 			System.out.println("inserisci il peso massimo che puo trasportare");
-			nave.getTipo().setpMax(input.nextDouble());
+			nave.setpMax(input.nextDouble());
 			input.nextLine();
 			System.out.println("inserisci il numero di telaio");
 			nave.getTipo().setnTelaio(input.nextLine());
-			nave.getTipo().setpTot(0);
-			nave.setAutistiPerMezzo(autistiNave);
-			nave.setMerciPerMezzo(merciNave);
+			for(Merce<?>i:nave.getMerciPerMezzo()) {
+				peso1=peso1+i.getPeso();
+			}
+			nave.getTipo().setpTot(peso1);
 			magazzino.getMezzi().add(nave);
 			break;
 		case 2:
+			double peso=0;
 			Mezzo<Camion> camion=new Mezzo<Camion>(new Camion());
 			List <Autista> autistiCamion=new ArrayList<Autista>();
 			List<Merce<?>> merciCamion=new ArrayList<Merce<?>>();
 			camion.getTipo().setId(magazzino.getMezzi().size()+1);
+			camion.setAutistiPerMezzo(autistiCamion);
+			camion.setMerciPerMezzo(merciCamion);
 			System.out.println("inserisci il peso massimo che puo trasportare");
-			camion.getTipo().setpMax(input.nextDouble());
+			camion.setpMax(input.nextDouble());
 			input.nextLine();
 			System.out.println("inserisci il numero di telaio");
 			camion.getTipo().setnTelaio(input.nextLine());
-			camion.getTipo().setpTot(0);
-			camion.setAutistiPerMezzo(autistiCamion);
-			camion.setMerciPerMezzo(merciCamion);
+			for(Merce<?>i:camion.getMerciPerMezzo()) {
+				peso=peso+i.getPeso();
+			}
+			camion.getTipo().setpTot(peso);
 			magazzino.getMezzi().add(camion);
 			break;
 		}
@@ -355,6 +363,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	@Override
 	public void associaMerciMezzi(Magazzino magazzino) {
 		// TODO Auto-generated method stub
+		double peso=0;
 		vediMerci(magazzino);
 		System.out.println("scegli merce: ");
 		int nMerce=input.nextInt();
@@ -363,9 +372,16 @@ public class DirettoreServiceImpl implements DirettoreService {
 		System.out.println("scegli un mezzo: ");
 		int nMezzo=input.nextInt();
 		Mezzo<?>mezzo=magazzino.getMezzi().get(nMezzo);
-		merce.getMezziMerce().add(mezzo);
+		for(Merce<?>i:mezzo.getMerciPerMezzo()) {
+			peso=peso+i.getPeso();
+		}
+			if(peso<mezzo.getpMax()) {
+				merce.getMezziMerce().add(mezzo);
+				mezzo.getMerciPerMezzo().add(merce);
+			}
+			else System.out.println("non puoi aggiungere questa merce superi il peso max consentito");
+		}
 		
-	}
 
 	@Override
 	public void vediOperai(Magazzino magazzino) {

@@ -16,6 +16,8 @@ public class Mezzo<T> {
 	static List<Autista> autistiPerMezzo;
 	
 	static List<Merce<?>> merciPerMezzo;
+	
+	double pMax;
 
 	public T getTipo() {
 		return tipo;
@@ -49,10 +51,19 @@ public class Mezzo<T> {
 		Mezzo.merciPerMezzo = merciPerMezzo;
 	}
 
+	public double getpMax() {
+		return pMax;
+	}
+
+	public void setpMax(double pMax) {
+		this.pMax = pMax;
+	}
+
 	@Override
 	public String toString() {
-		return "Mezzo [tipo=" + tipo + "]";
+		return "Mezzo [tipo=" + tipo + ", pMax=" + pMax + "]";
 	}
+	
 	
 	
 	
