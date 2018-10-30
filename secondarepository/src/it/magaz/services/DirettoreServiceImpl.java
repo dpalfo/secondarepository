@@ -379,7 +379,10 @@ public class DirettoreServiceImpl implements DirettoreService {
 				merce.getMezziMerce().add(mezzo);
 				mezzo.getMerciPerMezzo().add(merce);
 			}
+		
 			else System.out.println("non puoi aggiungere questa merce superi il peso max consentito");
+			
+			System.out.println(magazzino);
 		}
 		
 
