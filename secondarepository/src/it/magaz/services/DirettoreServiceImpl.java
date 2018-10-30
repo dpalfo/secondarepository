@@ -323,7 +323,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	public void vediOperai(Magazzino magazzino) {
 		
 		List<Operaio>listOperai=magazzino.getOperai();
-		for(Operaio i: magazzino.getOperai())
+		for(Operaio i: listOperai)
 		{
 			System.out.println(i);
 		}
@@ -333,7 +333,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 	public void vediMerci(Magazzino magazzino) {
 		
 		List<Merce<?>>listMerce=magazzino.getMerci();	
-		for(Merce<?> j: magazzino.getMerci())
+		for(Merce<?> j: listMerce)
 		{
 			System.out.println(j);
 		}
