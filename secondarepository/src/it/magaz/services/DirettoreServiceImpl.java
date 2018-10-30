@@ -307,7 +307,9 @@ public class DirettoreServiceImpl implements DirettoreService {
 
 	@Override
 	public void associaOperaiMerci(Magazzino magazzino) {
-		// TODO Auto-generated method stub
+		vediOperai(magazzino);
+		vediMerci(magazzino);
+		
 		
 	}
 
@@ -315,5 +317,25 @@ public class DirettoreServiceImpl implements DirettoreService {
 	public void associaMerciMezzi(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void vediOperai(Magazzino magazzino) {
+		
+		List<Operaio>listOperai=magazzino.getOperai();
+		for(Operaio i: magazzino.getOperai())
+		{
+			System.out.println(i);
+		}
+	}
+
+	@Override
+	public void vediMerci(Magazzino magazzino) {
+		
+		List<Merce<?>>listMerce=magazzino.getMerci();	
+		for(Merce<?> j: magazzino.getMerci())
+		{
+			System.out.println(j);
+		}
 	}
 }
