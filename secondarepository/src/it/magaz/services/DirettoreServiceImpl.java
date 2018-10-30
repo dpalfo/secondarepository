@@ -331,12 +331,21 @@ public class DirettoreServiceImpl implements DirettoreService {
 	public void associaOperaiMerci(Magazzino magazzino) {
 		// TODO Auto-generated method stub
 		
+		
 	}
 
 	@Override
 	public void associaMerciMezzi(Magazzino magazzino) {
 		// TODO Auto-generated method stub
-		
+		vediMerci(magazzino);
+		System.out.println("scegli merce: ");
+		int nMerce=input.nextInt();
+		Merce<?>merce=magazzino.getMerci().get(nMerce);
+		vediMezzi(magazzino);
+		System.out.println("scegli un mezzo: ");
+		int nMezzo=input.nextInt();
+		Mezzo<?>mezzo=magazzino.getMezzi().get(nMezzo);
+		merce.getMezziMerce().add(mezzo);
 		
 	}
 
