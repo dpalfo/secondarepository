@@ -1,8 +1,8 @@
 package it.magaz.services;
 
-import it.magaz.model.Magazzino;
+import it.magaz.model.Autista;
 
 public interface AutistaService {
 
-	public void vediMezzi (Magazzino magazzino);
+	public void vediMezzi (Autista autista);
 }
