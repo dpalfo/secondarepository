@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import it.magaz.model.Autista;
 import it.magaz.model.Camion;
+import it.magaz.model.Destinazione;
 import it.magaz.model.Direttore;
 import it.magaz.model.Merce;
 import it.magaz.model.MerceAbbigliamento;
@@ -119,6 +120,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			Merce<MerceCibo> cibo=new Merce<MerceCibo>(new MerceCibo());
 			List<Mezzo<?>>mezziCibo=new ArrayList<Mezzo<?>>();
 			List<Operaio>operai=new ArrayList<Operaio>();
+			Destinazione destinazione=new Destinazione();
 			System.out.println("inserisci id");
 			cibo.getContenuto().setId(input.nextLong());
 			System.out.println("inserisci il peso");
@@ -127,7 +129,8 @@ public class DirettoreServiceImpl implements DirettoreService {
 			cibo.setCosto(input.nextDouble());
 			cibo.setMezziMerce(mezziCibo);
 			cibo.setOperaiMerce(operai);
-			System.out.println("inserisci la quantita");
+			cibo.getContenuto().setDestinazione(destinazione);
+            System.out.println("inserisci la quantita");
 			cibo.setQuantita(input.nextInt());
 			merce.add(cibo);
 			break;
@@ -135,6 +138,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			Merce<MerceAbbigliamento> abbigliamento=new Merce<MerceAbbigliamento>(new MerceAbbigliamento());
 			List<Mezzo<?>>mezziAbbigliamento=new ArrayList<Mezzo<?>>();
 			List<Operaio>operaiAbb=new ArrayList<Operaio>();
+			Destinazione destinazioneabb=new Destinazione();
 			System.out.println("inserisci id");
 			abbigliamento.getContenuto().setId(input.nextLong());
 			System.out.println("inserisci il peso");
@@ -143,6 +147,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			abbigliamento.setCosto(input.nextDouble());
 			abbigliamento.setMezziMerce(mezziAbbigliamento);
 			abbigliamento.setOperaiMerce(operaiAbb);
+			abbigliamento.getContenuto().setDestinazione(destinazioneabb);
 			System.out.println("inserisci la quantita");
 			abbigliamento.setQuantita(input.nextInt());
 			merce.add(abbigliamento);
@@ -151,6 +156,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			Merce<MerceInformatica> informatica=new Merce<MerceInformatica>(new MerceInformatica());
 			List<Mezzo<?>>mezziInfo=new ArrayList<Mezzo<?>>();
 			List<Operaio>operaiInfo=new ArrayList<Operaio>();
+			Destinazione destinazioneinf=new Destinazione();
 			System.out.println("inserisci id");
 			informatica.getContenuto().setId(input.nextLong());
 			System.out.println("inserisci il peso");
@@ -159,6 +165,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			informatica.setCosto(input.nextDouble());
 			informatica.setMezziMerce(mezziInfo);
 			informatica.setOperaiMerce(operaiInfo);
+			informatica.getContenuto().setDestinazione(destinazioneinf);
 			System.out.println("inserisci la quantita");
 			informatica.setQuantita(input.nextInt());
 			merce.add(informatica);
