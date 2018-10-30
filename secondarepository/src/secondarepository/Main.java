@@ -18,7 +18,9 @@ public class Main {
 		Scanner input = new Scanner(System.in);
 		Magazzino magazzino = new Magazzino();
 		List<Direttore> direttori = new ArrayList<>();
+		List<Autista> autisti=new ArrayList<>();
 		magazzino.setDirettori(direttori);
+		magazzino.setAutisti(autisti);
 		DirettoreService direttore = new DirettoreServiceImpl();
 		AutistaService autista = new AutistaServiceImpl();
 		boolean exit=true;
@@ -87,21 +89,26 @@ public class Main {
 			}while(exit);
 			
 				}
-			else 
+			else
 			{
-				
+				long b = Long.parseLong(codice);
 				for(Autista a: magazzino.getAutisti()) {
-					long b;
-					if((b = Long.parseLong(codice)) == a.getId()) {
+					if (b == a.getId()) {
 						System.out.println("Benvenuto "+ a.getNome() + " vuoi vedere le caratteristiche dei mezzi da te guidati ?");
 						String scelta = input.nextLine();
 						if(scelta.equals("si"))
 						{
 							autista.vediMezzi(a);
 						}
-						else
-						System.out.println("non sei registrato");
-						}
+					 else if (magazzino.getAutisti().isEmpty()) {
+							System.out.println("non sei registrato");	
+					 }
+					 else
+					 {
+							System.out.println("non sei registrato");
+					 }
+						
+					}
 						
 					}
 				}
