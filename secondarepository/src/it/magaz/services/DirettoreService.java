@@ -11,7 +11,7 @@ import it.magaz.model.Operaio;
 
 public interface DirettoreService {
 	
-    public Direttore creaDirettore (Direttore direttore);
+    public List<Direttore> creaDirettore (Magazzino magazzino);
 	public List<Operaio> aggiungiOperaio(Magazzino magazzino);
     public List<Mezzo<?>> aggiuingiMezzo(Magazzino magazzino);
 	public List<Autista> aggiungiAutista(Magazzino magazzino);

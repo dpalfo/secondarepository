@@ -21,10 +21,11 @@ public class DirettoreServiceImpl implements DirettoreService {
 	Scanner input=new Scanner(System.in);
 
 	@Override
-	public Direttore creaDirettore(Direttore direttore) {
+	public List<Direttore> creaDirettore(Magazzino magazzino) {
 		// TODO Auto-generated method stub
-		System.out.println("inserisci un id");
-		direttore.setId(input.nextLong());
+		System.out.println("aggiungi direttore");
+		Direttore direttore=new Direttore();
+		direttore.setId(magazzino.getDirettori().size()+1);
 		System.out.println("inserisci nome");
 		direttore.setNome(input.nextLine());
 		System.out.println("inserisci cognome");
@@ -33,15 +34,15 @@ public class DirettoreServiceImpl implements DirettoreService {
 		direttore.setEta(input.nextInt());
 		System.out.println("inserisci il codice direttore");
 		direttore.setCodic(input.nextLine());
-		return direttore;
+		magazzino.getDirettori().add(direttore);
+		return magazzino.getDirettori();
 	}
 
 	@Override
 	public List<Operaio> aggiungiOperaio(Magazzino magazzino) {
 		System.out.println("Crea operaio");
 		Operaio operaio=new Operaio();
-		System.out.println("Inserisci l'ID dell'operaio: ");
-		operaio.setId(input.nextLong());
+		operaio.setId(magazzino.getOperai().size()+1);
 		System.out.println("Inserisci il nome: ");
 		operaio.setNome(input.nextLine());
 		System.out.println("Inserisci il cognome: ");
@@ -62,8 +63,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			Mezzo<Nave> nave=new Mezzo<Nave>(new Nave());
 			List<Autista> autistiNave=new ArrayList<Autista>();
 			List<Merce<?>> merciNave=new ArrayList<Merce<?>>();
-			System.out.println("inserisci id nave");
-			nave.getTipo().setId(input.nextLong());
+			nave.getTipo().setId(magazzino.getMezzi().size()+1);
 			System.out.println("inserisci il peso massimo che puo trasportare");
 			nave.getTipo().setpMax(input.nextDouble());
 			System.out.println("inserisci il numero di telaio");
@@ -78,7 +78,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 			List <Autista> autistiCamion=new ArrayList<Autista>();
 			List<Merce<?>> merciCamion=new ArrayList<Merce<?>>();
 			System.out.println("inserisci id camion");
-			camion.getTipo().setId(input.nextLong());
+			camion.getTipo().setId(magazzino.getMezzi().size()+1);
 			System.out.println("inserisci il peso massimo che puo trasportare");
 			camion.getTipo().setpMax(input.nextDouble());
 			System.out.println("inserisci il numero di telaio");
@@ -98,8 +98,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		List<Mezzo<?>>mez=new ArrayList<Mezzo<?>>();
 		Autista autista = new Autista();
 		System.out.println("Crea autista");
-		System.out.println("Inserisci l'ID dell'autista: ");
-		autista.setId(input.nextLong());
+		autista.setId(magazzino.getAutisti().size()+1);
 		System.out.println("Inserisci il nome: ");
 		autista.setNome(input.nextLine());
 		System.out.println("Inserisci il cognome: ");
@@ -123,11 +122,13 @@ public class DirettoreServiceImpl implements DirettoreService {
 			List<Operaio>operai=new ArrayList<Operaio>();
 			Destinazione destinazione=new Destinazione();
 			System.out.println("inserisci id");
-			cibo.getContenuto().setId(input.nextLong());
+			cibo.getContenuto().setId(magazzino.getMerci().size()+1);
 			System.out.println("inserisci il peso");
 			cibo.setPeso(input.nextDouble());
+			input.nextLine();
 			System.out.println("inserisci il costo");
 			cibo.setCosto(input.nextDouble());
+			input.nextLine();
 			cibo.setMezziMerce(mezziCibo);
 			cibo.setOperaiMerce(operai);
 			cibo.getContenuto().setDestinazione(destinazione);
@@ -140,12 +141,13 @@ public class DirettoreServiceImpl implements DirettoreService {
 			List<Mezzo<?>>mezziAbbigliamento=new ArrayList<Mezzo<?>>();
 			List<Operaio>operaiAbb=new ArrayList<Operaio>();
 			Destinazione destinazioneabb=new Destinazione();
-			System.out.println("inserisci id");
-			abbigliamento.getContenuto().setId(input.nextLong());
+			abbigliamento.getContenuto().setId(magazzino.getMerci().size()+1);
 			System.out.println("inserisci il peso");
 			abbigliamento.setPeso(input.nextDouble());
+			input.nextLine();
 			System.out.println("inserisci il costo");
 			abbigliamento.setCosto(input.nextDouble());
+			input.nextLine();
 			abbigliamento.setMezziMerce(mezziAbbigliamento);
 			abbigliamento.setOperaiMerce(operaiAbb);
 			abbigliamento.getContenuto().setDestinazione(destinazioneabb);
@@ -158,12 +160,13 @@ public class DirettoreServiceImpl implements DirettoreService {
 			List<Mezzo<?>>mezziInfo=new ArrayList<Mezzo<?>>();
 			List<Operaio>operaiInfo=new ArrayList<Operaio>();
 			Destinazione destinazioneinf=new Destinazione();
-			System.out.println("inserisci id");
-			informatica.getContenuto().setId(input.nextLong());
+			informatica.getContenuto().setId(magazzino.getMerci().size()+1);
 			System.out.println("inserisci il peso");
 			informatica.setPeso(input.nextDouble());
+			input.nextLine();
 			System.out.println("inserisci il costo");
 			informatica.setCosto(input.nextDouble());
+			input.nextLine();
 			informatica.setMezziMerce(mezziInfo);
 			informatica.setOperaiMerce(operaiInfo);
 			informatica.getContenuto().setDestinazione(destinazioneinf);
