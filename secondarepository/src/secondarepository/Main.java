@@ -49,7 +49,7 @@ public class Main {
 				System.out.println("1) Assumi autista - 2) Assumi operaio - 3) Aggiungi merce - 4) Aggiungi mezzo\n"
 						+ "5) Vedi la merce più trasportata - 6) Vedi il mezzo più pesante - 7) Vedi trasporto più redditizio\n"
 						+ "8) Quale autista guida più mezzi - 9) Quale merce viaggia maggiormente in NAVE e quale in CAMION\n"
-						+ "10) Assegna mezzo all'autista - 11) Assegna operaio a merce - 12) Assegna merci ai mezzi");
+						+ "10) Assegna mezzo all'autista - 11) Assegna operaio a merce - 12) Assegna merci ai mezzi - 13) Esci");
 				int x =input.nextInt();
 				input.nextLine();
 				switch(x) {
