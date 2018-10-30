@@ -323,7 +323,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		int numMezzo = input.nextInt();
 		Mezzo<?> mezzo = magazzino.getMezzi().get(numMezzo);
 		autista.getListmezaut().add(mezzo);
-			}
+	}
 	
 
 	@Override
@@ -352,7 +352,11 @@ public class DirettoreServiceImpl implements DirettoreService {
 	}
 
 	@Override
-	public void vediMerci(Magazzino magazzino) {		
+	public void vediMerci(Magazzino magazzino) {
+		// TODO Auto-generated method stub
+		
+
+
 		List<Merce<?>>listMerce=magazzino.getMerci();	
 		for(Merce<?> j: listMerce)
 		{
