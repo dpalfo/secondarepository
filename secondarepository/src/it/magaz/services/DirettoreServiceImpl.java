@@ -325,6 +325,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		autista.getListmezaut().add(mezzo);
 	}
 	
+	
 
 	@Override
 	public void associaOperaiMerci(Magazzino magazzino) {
