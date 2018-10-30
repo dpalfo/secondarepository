@@ -32,6 +32,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		direttore.setCognome(input.nextLine());
 		System.out.println("inserisci eta");
 		direttore.setEta(input.nextInt());
+		input.nextLine();
 		System.out.println("inserisci il codice direttore");
 		direttore.setCodic(input.nextLine());
 		magazzino.getDirettori().add(direttore);
@@ -49,6 +50,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		operaio.setCognome(input.nextLine());
 		System.out.println("Inserisci l' eta: ");
 		operaio.setEta(input.nextInt());
+		input.nextLine();
 		magazzino.getOperai().add(operaio);
 		return magazzino.getOperai();
 	}
@@ -105,6 +107,7 @@ public class DirettoreServiceImpl implements DirettoreService {
 		autista.setCognome(input.nextLine());
 		System.out.println("Inserisci l' eta: ");
 		autista.setEta(input.nextInt());
+		input.nextLine();
 		autista.setListmezaut(mez);
 		magazzino.getAutisti().add(autista);
 		return magazzino.getAutisti();
