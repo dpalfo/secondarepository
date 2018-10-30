@@ -1,15 +1,16 @@
 package it.magaz.services;
 
 import it.magaz.model.Autista;
-import it.magaz.model.Direttore;
+
+import it.magaz.model.Magazzino;
 import it.magaz.model.Mezzo;
 
 public class AutistaServiceImpl implements AutistaService {
 
 	@Override
-	public void vediMezzi(Direttore direttore) {
+	public void vediMezzi(Magazzino magazzino) {
 		
-		for(Autista i:direttore.getListaAutisti())
+		for(Autista i:magazzino.getAutisti())
 		{
 			for(Mezzo<?> j: i.getListmezaut())
 			{
