@@ -9,7 +9,6 @@ public class Autista extends Persona  {
 	
 	
 	
-	
 	public long getId() {
 		return id;
 	}
