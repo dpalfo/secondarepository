@@ -112,6 +112,7 @@ public class Main {
 							}
 						} else {
 							System.out.println("non sei registrato");
+							input.close();
 						}
 
 					}
