@@ -23,6 +23,7 @@ public class Autista extends Persona  {
 	}
 	
 	
+	
 	public Autista(long id, List<Mezzo<?>> listmezaut) {
 		super();
 		this.id = id;
